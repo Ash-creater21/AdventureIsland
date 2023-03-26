@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &59784583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59784584}
+  m_Layer: 0
+  m_Name: isgrounded
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &59784584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59784583}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.95, y: 1.08, z: 0.2390712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &77154941
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77154941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.41899586, y: -1.4200001, z: 0.20542425}
+  m_LocalPosition: {x: 0.4189959, y: -1.4200001, z: 0.2054242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -218,7 +249,7 @@ GameObject:
   - component: {fileID: 163095863}
   - component: {fileID: 163095862}
   - component: {fileID: 163095864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +444,7 @@ GameObject:
   - component: {fileID: 317167199}
   - component: {fileID: 317167198}
   - component: {fileID: 317167200}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +555,7 @@ GameObject:
   - component: {fileID: 414865143}
   - component: {fileID: 414865142}
   - component: {fileID: 414865144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: platform3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +666,7 @@ GameObject:
   - component: {fileID: 471239745}
   - component: {fileID: 471239744}
   - component: {fileID: 471239746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,7 +861,7 @@ GameObject:
   - component: {fileID: 667131683}
   - component: {fileID: 667131682}
   - component: {fileID: 667131684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: platform2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +986,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706646998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7599993, y: 1.05, z: 0}
+  m_LocalPosition: {x: 0.81, y: 0.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1025,7 +1056,7 @@ GameObject:
   - component: {fileID: 737663387}
   - component: {fileID: 737663386}
   - component: {fileID: 737663388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1136,7 +1167,7 @@ GameObject:
   - component: {fileID: 811946932}
   - component: {fileID: 811946931}
   - component: {fileID: 811946933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: platform3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1429,7 +1460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347771762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.15, y: -1.41, z: 0.20542425}
+  m_LocalPosition: {x: 0.15, y: -1.41, z: 0.2054242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1513,8 +1544,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348138282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.29899597, y: -1.99, z: 0.20542425}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.298996, y: -1.99, z: 0.2054242}
+  m_LocalScale: {x: 1, y: 1.0625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 706646999}
@@ -1586,7 +1617,7 @@ GameObject:
   - component: {fileID: 1416092124}
   - component: {fileID: 1416092123}
   - component: {fileID: 1416092125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: platform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1795,8 +1826,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623658871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.24899578, y: -0.56999993, z: 0.20542425}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.2489958, y: -0.56999993, z: 0.2054242}
+  m_LocalScale: {x: 1, y: 0.98256344, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1041868098}
@@ -1952,6 +1983,7 @@ GameObject:
   - component: {fileID: 1733129149}
   - component: {fileID: 1733129151}
   - component: {fileID: 1733129152}
+  - component: {fileID: 1733129153}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1993,7 +2025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733129148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.23, y: 4.12, z: -0.20542425}
+  m_LocalPosition: {x: 8.57, y: 3.94, z: -0.2054242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2016,10 +2048,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2038,7 +2070,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 10
-  jumpSpeed: 5
+  jumpSpeed: 15
+  groundpos: {fileID: 59784584}
+  checkRadius: 4
+  whatIsMask:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!95 &1733129153
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733129148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 31cca4e85368f794cab23492954c2d9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1739807712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,7 +2105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1739807713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2175,7 +2232,7 @@ GameObject:
   - component: {fileID: 1877372642}
   - component: {fileID: 1877372641}
   - component: {fileID: 1877372643}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: platform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2319,7 +2376,7 @@ GameObject:
   - component: {fileID: 2029910404}
   - component: {fileID: 2029910403}
   - component: {fileID: 2029910405}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

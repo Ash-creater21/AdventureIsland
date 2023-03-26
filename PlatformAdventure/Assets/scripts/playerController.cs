@@ -11,9 +11,21 @@ public class playerController : MonoBehaviour
 
   private bool isright = true ; 
 
+  private Animator anim ; 
+
+  // is grounded functionality 
+
+  private bool isgrounded ; 
+  public Transform groundpos ; 
+  public float checkRadius ; 
+  public LayerMask whatIsMask ; 
+
+
+
   private void Start() 
   {
-    rb = GetComponent<Rigidbody2D>() ; 
+    anim = GetComponent<Animator>(); 
+    rb = GetComponent<Rigidbody2D>(); 
   }
 
   private void FixedUpdate() 
@@ -30,12 +42,35 @@ public class playerController : MonoBehaviour
     {
         flip() ; 
     }
+  // Ground Check 
+
+  isgrounded = Physics2D.OverlapCircle(groundpos.position,checkRadius,whatIsMask); 
+    // Animatation Handling 
+    Debug.Log(isgrounded);
+
+    if(moveinput == 0)
+    {
+      anim.SetBool("isrunning",false);
+    }
+    else 
+    {
+      anim.SetBool("isrunning",true);
+    }
+    if(isgrounded==true)
+    {
+      anim.SetBool("isjumping",false) ; 
+    }
+    else if(isgrounded==false)
+    {
+      anim.SetBool("isjumping",true) ; 
+    }
 
 
   }
 
   private void Update() 
   {
+
     if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
     {
         rb.velocity = Vector2.up * jumpSpeed ; 
