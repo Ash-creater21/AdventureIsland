@@ -20,7 +20,14 @@ public class playerController : MonoBehaviour
   public float checkRadius ; 
   public LayerMask whatIsMask ; 
 
+  // ladder 
 
+  private bool isclimbing ; 
+  public float distance ; 
+
+  public LayerMask whatisladder ; 
+
+  
 
   private void Start() 
   {
@@ -46,7 +53,7 @@ public class playerController : MonoBehaviour
 
   isgrounded = Physics2D.OverlapCircle(groundpos.position,checkRadius,whatIsMask); 
     // Animatation Handling 
-    Debug.Log(isgrounded);
+    // Debug.Log(isgrounded);
 
     if(moveinput == 0)
     {
@@ -66,6 +73,31 @@ public class playerController : MonoBehaviour
     }
 
 
+    RaycastHit2D hitinfo = Physics2D.Raycast(transform.position,Vector2.up,distance,whatisladder);
+    Debug.Log(hitinfo.collider!=null);
+    if(hitinfo.collider!=null)
+    {
+      if(Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.UpArrow))
+      {
+        isclimbing = true ; 
+        Debug.Log("Climb is true : ");
+      }
+      else 
+      {
+        isclimbing = false ; 
+      }
+       if(isclimbing==true)
+    {
+      float inputVertical = Input.GetAxis("Vertical"); 
+      rb.velocity = new Vector2(rb.velocity.x,inputVertical*jumpSpeed) ; 
+      rb.gravityScale = 0 ; 
+    }
+    else 
+    {
+      rb.gravityScale = 3 ; 
+    }
+    }
+   
   }
 
   private void Update() 
