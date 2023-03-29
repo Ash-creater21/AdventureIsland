@@ -80,13 +80,14 @@ public class playerController : MonoBehaviour
       if(Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.UpArrow))
       {
         isclimbing = true ; 
-        Debug.Log("Climb is true : ");
       }
-      else 
+      
+    }
+    else 
       {
         isclimbing = false ; 
       }
-       if(isclimbing==true)
+   if(isclimbing==true)
     {
       float inputVertical = Input.GetAxis("Vertical"); 
       rb.velocity = new Vector2(rb.velocity.x,inputVertical*jumpSpeed) ; 
@@ -96,17 +97,19 @@ public class playerController : MonoBehaviour
     {
       rb.gravityScale = 3 ; 
     }
-    }
    
   }
 
   private void Update() 
   {
-
+    if(isclimbing==false)
+    {
     if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
     {
         rb.velocity = Vector2.up * jumpSpeed ; 
     }
+    }
+   
   }
 
 private void flip() 
