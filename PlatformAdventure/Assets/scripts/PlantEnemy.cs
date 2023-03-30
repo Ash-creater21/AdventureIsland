@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlantEnemy : Enemy
@@ -33,5 +31,14 @@ public class PlantEnemy : Enemy
             }
         }
     }
+
+    public new void TakeDamage(int DamageAmt)
+   {
+    Health -= DamageAmt ; 
+    if(Health<=0)
+    {
+        Destroy(this.gameObject);
+    }
+   }
 
 }
