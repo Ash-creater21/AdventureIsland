@@ -28,14 +28,20 @@ public class movingPlatform : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position,points[index].position,speed*Time.deltaTime);
    }
 
-private void OncollisionEnter2D(Collision2D collision) 
+void OnCollisionEnter2D(Collision2D collision) 
 {
+    Debug.Log("Hi All ");
+    if(collision.gameObject.CompareTag("Player"))
+    {
     collision.transform.SetParent(transform) ; 
+    }
 }
-private void OncollisionExit2D(Collision2D collision) 
+void OnCollisionExit2D(Collision2D collision) 
 {
     collision.transform.SetParent(null) ; 
 }
+
+
 
 
 }

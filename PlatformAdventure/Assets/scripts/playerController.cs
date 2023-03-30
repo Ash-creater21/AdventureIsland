@@ -74,7 +74,7 @@ public class playerController : MonoBehaviour
 
 
     RaycastHit2D hitinfo = Physics2D.Raycast(transform.position,Vector2.up,distance,whatisladder);
-    Debug.Log(hitinfo.collider!=null);
+
     if(hitinfo.collider!=null)
     {
       if(Input.GetKeyDown(KeyCode.W)||Input.GetKeyDown(KeyCode.UpArrow))
