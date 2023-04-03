@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour
   private bool isright = true ; 
 
   private Animator anim ; 
+public int Health = 10 ; 
 
   // is grounded functionality 
 
@@ -120,5 +121,23 @@ private void flip()
     Scaler.x *= -1 ; 
     this.transform.localScale = Scaler ; 
 }
+
+ public void TakeDamage(int DamageAmt)
+   {
+    Health -= DamageAmt ; 
+    
+    
+    if(Health<=0)
+    {
+        Destroy(this.gameObject);
+    }
+
+}
+
+public void GetHealth(int HealthAmt) 
+{
+  Health += HealthAmt ; 
+}
+
 
 }

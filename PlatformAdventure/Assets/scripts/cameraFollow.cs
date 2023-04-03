@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class cameraFollow : MonoBehaviour
 {
+   public Transform particleEffect ; 
    public Transform player ; 
 
    public Vector3 offset ; 
 
    private void Update() 
    {
-    transform.position = player.position + offset ; 
+      // Instantiate(particleEffect);
+    transform.position = player.position + offset; 
+    particleEffect.position = this.transform.position + new Vector3(0.0f,0.0f,-0.7779132f); 
+
    }
-
-
 }

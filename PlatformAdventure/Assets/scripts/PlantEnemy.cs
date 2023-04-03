@@ -9,6 +9,17 @@ public class PlantEnemy : Enemy
 
     public LayerMask whatisLayer ; 
 
+    public GameObject prefab ; 
+
+    public int damage = 1 ; 
+    public ParticleSystem DeathEffect ; 
+
+
+    // private void Start() 
+    // {
+    //     anim = GetComponent<Animator>();
+    // }
+
     private void Update() 
     {
  
@@ -35,10 +46,31 @@ public class PlantEnemy : Enemy
     public new void TakeDamage(int DamageAmt)
    {
     Health -= DamageAmt ; 
+    Instantiate(prefab,this.transform.position,this.transform.rotation);
+    
     if(Health<=0)
     {
         Destroy(this.gameObject);
     }
    }
+
+   void OnTriggerEnter2D(Collider2D collider) 
+   {
+        playerController player = collider.GetComponent<playerController>();
+        // if(player!=null)
+        // {
+        //     Debug.Log("HUHU");
+        //     player.TakeDamage(damage);
+        // }
+        if(collider.CompareTag("Player"))
+        {
+            Instantiate(DeathEffect,transform.position,transform.rotation) ; 
+            int damage = 1 ;
+            player.TakeDamage(damage);
+        }
+
+   }
+
+
 
 }

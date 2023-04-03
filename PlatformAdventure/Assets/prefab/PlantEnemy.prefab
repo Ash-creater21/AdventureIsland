@@ -189,6 +189,9 @@ MonoBehaviour:
   whatisLayer:
     serializedVersion: 2
     m_Bits: 64
+  prefab: {fileID: 7722746577383829434, guid: c5f5e21c1936d764bb71c229e45ee008, type: 3}
+  damage: 1
+  DeathEffect: {fileID: 6421406629403632385, guid: 9963920f0636df747980049f15f048d3, type: 3}
 --- !u!1 &5037018049999872245
 GameObject:
   m_ObjectHideFlags: 0
