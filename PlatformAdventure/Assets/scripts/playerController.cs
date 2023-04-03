@@ -12,8 +12,8 @@ public class playerController : MonoBehaviour
   private bool isright = true ; 
 
   private Animator anim ; 
-public int Health = 10 ; 
-
+public int Health ; 
+public int MaxHealth = 20 ; 
   // is grounded functionality 
 
   private bool isgrounded ; 
@@ -28,10 +28,17 @@ public int Health = 10 ;
 
   public LayerMask whatisladder ; 
 
+  // HealthBar 
+
+  public HealthBar healthBar ; 
+
+  private int minHealth =>  50 * MaxHealth  / 100 ; 
+
   
 
   private void Start() 
   {
+    healthBar.SetMaxHealth(MaxHealth); 
     anim = GetComponent<Animator>(); 
     rb = GetComponent<Rigidbody2D>(); 
   }
@@ -125,7 +132,16 @@ private void flip()
  public void TakeDamage(int DamageAmt)
    {
     Health -= DamageAmt ; 
-    
+    healthBar.SetHealth(Health);
+
+    if(Health<=minHealth)
+    {
+        healthBar.SetDanger() ; 
+    }
+    else if(Health >= minHealth)
+    {
+      healthBar.NoDanger() ; 
+    }
     
     if(Health<=0)
     {
@@ -136,6 +152,7 @@ private void flip()
 
 public void GetHealth(int HealthAmt) 
 {
+  healthBar.SetHealth(Health);
   Health += HealthAmt ; 
 }
 
