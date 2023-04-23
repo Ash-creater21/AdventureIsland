@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2502254587861565282}
   - component: {fileID: 8265424370426340637}
   - component: {fileID: 5877508055785705552}
-  - component: {fileID: -5306831764179060793}
+  - component: {fileID: -4368044996560923451}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.43, y: 1.2185996}
   m_EdgeRadius: 0
---- !u!114 &-5306831764179060793
+--- !u!114 &-4368044996560923451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5169645705574945222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90247c0b97fe1844580dc0dccd7e59f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e0c692e9dd613049b55b02c0fff9eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0

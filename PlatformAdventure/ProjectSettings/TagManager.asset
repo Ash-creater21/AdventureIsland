@@ -6,6 +6,8 @@ TagManager:
   tags:
   - fruit
   - obstacle
+  - flag
+  - Enemy
   layers:
   - Default
   - TransparentFX

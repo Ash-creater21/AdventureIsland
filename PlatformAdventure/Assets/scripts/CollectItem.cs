@@ -2,19 +2,13 @@ using UnityEngine;
 
 public class CollectItem : MonoBehaviour
 {
-    public int fruitHealth = 2 ; 
-    private playerController player ; 
-    void Start() 
-    {
-        player = GetComponent<playerController>() ; 
-    }
-    
+    public int score ; 
    private void OnTriggerEnter2D(Collider2D col) {
-    if(col.CompareTag("fruit"))
+    if(col.CompareTag("Player"))
     {
         
-        player.GetHealth(fruitHealth);
-        Destroy(col.gameObject); 
+        Debug.Log("hi Score is "+score);
+        // Destroy(this.gameObject); 
     }
    }
 }

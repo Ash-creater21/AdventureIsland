@@ -12,8 +12,11 @@ public class cameraFollow : MonoBehaviour
    private void Update() 
    {
       // Instantiate(particleEffect);
+      if(player!=null)
+      {
     transform.position = player.position + offset; 
     particleEffect.position = this.transform.position + new Vector3(0.0f,0.0f,-0.7779132f); 
+      }
 
    }
 }

@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI ; 
 
 public class playerController : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class playerController : MonoBehaviour
 
   private Animator anim ; 
 public int Health ; 
-public int MaxHealth = 20 ; 
+public int MaxHealth = 5 ; 
   // is grounded functionality 
 
   private bool isgrounded ; 
@@ -31,8 +30,16 @@ public int MaxHealth = 20 ;
   // HealthBar 
 
   public HealthBar healthBar ; 
+  private bool isDead = false ; 
 
   private int minHealth =>  50 * MaxHealth  / 100 ; 
+
+  public SceneTransition scenetransition ; 
+
+  // UI 
+
+  public Text scoreText ; 
+
 
   
 
@@ -117,6 +124,12 @@ public int MaxHealth = 20 ;
         rb.velocity = Vector2.up * jumpSpeed ; 
     }
     }
+    if(this.transform.position.y <= -9.8)
+    {
+      isDead = true ; 
+      scenetransition.setScene("GameOver"); 
+
+    }
    
   }
 
@@ -146,6 +159,9 @@ private void flip()
     if(Health<=0)
     {
         Destroy(this.gameObject);
+        isDead = true ; 
+        scenetransition.setScene("GameOver"); 
+
     }
 
 }
@@ -156,5 +172,21 @@ public void GetHealth(int HealthAmt)
   Health += HealthAmt ; 
 }
 
+int score ; 
+private void OnTriggerEnter2D(Collider2D collider)
+{
+  if(collider.CompareTag("fruit"))
+  {
+  // int score = collider.GetComponent<CollectItem>().score ; 
+    score ++ ; 
+    scoreText.text = score + "Points".ToString() ; 
+    Destroy(collider.gameObject);
+  }
 
+ else if(collider.CompareTag("flag"))
+  {
+    Debug.Log("Hello"); 
+    scenetransition.setScene("Win");
+  }
+}
 }
