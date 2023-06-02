@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
    public int DamageAmt ; 
    
    public Transform player ; 
-
    private void Start() 
    {
      player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -21,6 +20,7 @@ public class Enemy : MonoBehaviour
     Health -= DamageAmt ; 
     if(Health<=0)
     {
+      
         Destroy(gameObject);
     }
    }

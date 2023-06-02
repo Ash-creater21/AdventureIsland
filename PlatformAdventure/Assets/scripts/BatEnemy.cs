@@ -8,6 +8,12 @@ public class BatEnemy : Enemy
     // would store EXact time of attack 
    public float attackTime ; 
 
+   public ParticleSystem DeathEffect ; 
+
+  
+
+
+
     public void Update() 
     {
         if(player!=null)
@@ -44,11 +50,15 @@ public class BatEnemy : Enemy
         }
      }
 
-     private void OntriigerEnter2D(Collider col)
-     {
-        if(col.CompareTag("Player"))
-        {
-            Debug.Log("Hello EveryBody "); 
-        }
-     } 
+
+    public new void TakeDamage(int DamageAmt)
+   {
+    Health -= DamageAmt ; 
+    Instantiate(DeathEffect,this.transform.position,this.transform.rotation);
+    
+    if(Health<=0)
+    {
+        Destroy(this.gameObject);
+    }
+   }
 }

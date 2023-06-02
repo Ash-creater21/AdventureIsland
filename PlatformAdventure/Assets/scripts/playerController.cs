@@ -11,8 +11,8 @@ public class playerController : MonoBehaviour
   private bool isright = true ; 
 
   private Animator anim ; 
-public int Health ; 
-public int MaxHealth = 5 ; 
+  public int Health ; 
+  public int MaxHealth = 5 ; 
   // is grounded functionality 
 
   private bool isgrounded ; 
@@ -27,11 +27,13 @@ public int MaxHealth = 5 ;
 
   public LayerMask whatisladder ; 
 
+  private int jumpCount = 0 ; 
+  public int MaxJump ; 
+
   // HealthBar 
 
   public HealthBar healthBar ; 
   private bool isDead = false ; 
-
   private int minHealth =>  50 * MaxHealth  / 100 ; 
 
   public SceneTransition scenetransition ; 
@@ -40,7 +42,12 @@ public int MaxHealth = 5 ;
 
   public Text scoreText ; 
 
+  // sound 
 
+  public AudioSource jumpSoundEffect ; 
+  public AudioSource CollectSoundEffect ; 
+  public AudioSource walkingSoundEffect ; 
+  public AudioSource DeathSoundEffect ; 
   
 
   private void Start() 
@@ -77,9 +84,11 @@ public int MaxHealth = 5 ;
     else 
     {
       anim.SetBool("isrunning",true);
+      walkingSoundEffect.Play() ; 
     }
     if(isgrounded==true)
     {
+      jumpCount = 0 ; 
       anim.SetBool("isjumping",false) ; 
     }
     else if(isgrounded==false)
@@ -117,16 +126,22 @@ public int MaxHealth = 5 ;
 
   private void Update() 
   {
-    if(isclimbing==false)
+    if(isclimbing==false&&jumpCount<MaxJump&&isgrounded==true)
     {
     if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
     {
         rb.velocity = Vector2.up * jumpSpeed ; 
+
+        jumpCount++ ; 
+        jumpSoundEffect.Play();
     }
+   
     }
+
     if(this.transform.position.y <= -9.8)
     {
       isDead = true ; 
+      
       scenetransition.setScene("GameOver"); 
 
     }
@@ -144,6 +159,7 @@ private void flip()
 
  public void TakeDamage(int DamageAmt)
    {
+    DeathSoundEffect.Play() ; 
     Health -= DamageAmt ; 
     healthBar.SetHealth(Health);
 
@@ -156,6 +172,7 @@ private void flip()
       healthBar.NoDanger() ; 
     }
     
+    
     if(Health<=0)
     {
         Destroy(this.gameObject);
@@ -163,6 +180,8 @@ private void flip()
         scenetransition.setScene("GameOver"); 
 
     }
+
+    
 
 }
 
@@ -172,7 +191,7 @@ public void GetHealth(int HealthAmt)
   Health += HealthAmt ; 
 }
 
-int score ; 
+private int score ; 
 private void OnTriggerEnter2D(Collider2D collider)
 {
   if(collider.CompareTag("fruit"))
@@ -180,12 +199,12 @@ private void OnTriggerEnter2D(Collider2D collider)
   // int score = collider.GetComponent<CollectItem>().score ; 
     score ++ ; 
     scoreText.text = score + "Points".ToString() ; 
-    Destroy(collider.gameObject);
+    CollectSoundEffect.Play() ; 
   }
 
  else if(collider.CompareTag("flag"))
   {
-    Debug.Log("Hello"); 
+   
     scenetransition.setScene("Win");
   }
 }

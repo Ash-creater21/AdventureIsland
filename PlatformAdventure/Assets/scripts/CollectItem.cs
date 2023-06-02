@@ -7,8 +7,8 @@ public class CollectItem : MonoBehaviour
     if(col.CompareTag("Player"))
     {
         
-        Debug.Log("hi Score is "+score);
-        // Destroy(this.gameObject); 
+        
+        Destroy(this.gameObject); 
     }
    }
 }

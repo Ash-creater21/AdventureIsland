@@ -15,6 +15,9 @@ public class PlayerAttack : MonoBehaviour
 
    private Animator anim ; 
 
+   // sound 
+   public AudioSource PlayerAttackEffect ; 
+
    private void Start()
    {
         anim = GetComponent<Animator>();
@@ -30,8 +33,10 @@ public class PlayerAttack : MonoBehaviour
     {
         timebtwAttack -= Time.deltaTime ; 
     }
-    if(Input.GetKeyDown(KeyCode.Space))
+    if(Input.GetKey(KeyCode.Space))
     {
+        // sound effect 
+        PlayerAttackEffect.Play() ; 
         // attack Animation 
         anim.SetTrigger("Attack") ; 
         Collider2D[] EnemiesToDamage = Physics2D.OverlapCircleAll(Attackpos.position,AttackRadius,whatIsEnemy); 
@@ -39,15 +44,18 @@ public class PlayerAttack : MonoBehaviour
         for(int i = 0 ; i<EnemiesToDamage.Length ; i++)
         {
             EnemiesToDamage[i].GetComponent<PlantEnemy>().TakeDamage(Damage);
-        }
+            
+        } 
 
-
-    }
-   
    }
+
+}
+
 private void OnDrawGizmosSelected() 
    {
     Gizmos.color = Color.red ; 
     Gizmos.DrawWireSphere(Attackpos.position,AttackRadius);
    }
 }
+
+
