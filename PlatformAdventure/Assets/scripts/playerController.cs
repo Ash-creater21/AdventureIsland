@@ -41,6 +41,7 @@ public class playerController : MonoBehaviour
   // UI 
 
   public Text scoreText ; 
+  public ParticleSystem DeathEffect ;  
 
   // sound 
 
@@ -48,6 +49,10 @@ public class playerController : MonoBehaviour
   public AudioSource CollectSoundEffect ; 
   public AudioSource walkingSoundEffect ; 
   public AudioSource DeathSoundEffect ; 
+
+  // death particle effect 
+
+  public Transform damageEffect ; 
   
 
   private void Start() 
@@ -182,7 +187,6 @@ private void flip()
     }
 
     
-
 }
 
 public void GetHealth(int HealthAmt) 
@@ -206,6 +210,13 @@ private void OnTriggerEnter2D(Collider2D collider)
   {
    
     scenetransition.setScene("Win");
+  }
+  else if(collider.CompareTag("trap"))
+  {
+   
+    Instantiate(DeathEffect,damageEffect.position,damageEffect.rotation) ; 
+    TakeDamage(1) ; 
+    
   }
 }
 }
